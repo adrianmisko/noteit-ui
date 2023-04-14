@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "projectId": "dk9bmc",
+  "video": false,
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "coverage/e2e.xml",
+    "toConsole": true
+  }
+}

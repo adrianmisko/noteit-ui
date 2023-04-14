@@ -1,0 +1,8 @@
+{
+  "short_name": "NoteIT",
+  "name": "NoteIT - tool for manual text annotation",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

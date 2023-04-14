@@ -1,0 +1,23 @@
+.ant-skeleton-content .ant-skeleton-paragraph > li {
+    background-color: #B7B7B7;
+}
+
+.ant-skeleton-title{
+    background-color: #B7B7B7 !important;
+}
+
+.css-1fzpoyk:nth-child(1){
+    transform:translateY(-50%) translateX(-40%) scale(1) !important;
+}
+
+.css-1fzpoyk:nth-child(3) {
+    transform:translateY(-50%) translateX(-60%) scale(1) !important;
+}
+
+.css-1fzpoyk:nth-child(2) {
+    width: 59%;
+}
+
+body {
+    overflow: hidden;
+}

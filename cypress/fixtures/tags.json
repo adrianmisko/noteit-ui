@@ -1,0 +1,4 @@
+[
+  { "id": 1, "color": "rgba(70, 20, 210, 0.33)", "tag": "Person" },
+  { "id": 2, "color": "rgba(200, 60, 70, 0.33)", "tag": "Animal" }
+]

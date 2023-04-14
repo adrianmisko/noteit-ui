@@ -1,0 +1,11 @@
+.ant-upload-drag-container{
+    height:15vh;
+}
+
+.ant-upload-drag{
+    height:15vh !important
+}
+
+.ant-upload-btn{
+    padding-top: 5px !important;
+}

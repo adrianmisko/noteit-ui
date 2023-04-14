@@ -1,0 +1,71 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: noteit-ui
+  labels:
+    app: noteit-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: noteit-ui
+  template:
+    metadata:
+      labels:
+        app: noteit-ui
+    spec:
+      tolerations:
+        - key: "gke-preemptible"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              preference:
+                matchExpressions:
+                  - key: cloud.google.com/gke-preemptible
+                    operator: In
+                    values:
+                      - "true"
+      containers:
+        - name: noteit-ui
+          image: eu.gcr.io/noteit-258112/noteit-ui:1.0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "20Mi"
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: noteit-ui
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: web-ui
+  labels:
+    app: noteit-ui
+spec:
+  backend:
+    serviceName: noteit-ui
+    servicePort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: noteit-ui
+  labels:
+    app: noteit-ui
+spec:
+  selector:
+    app: noteit-ui
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  type: NodePort
